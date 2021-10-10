@@ -1,5 +1,3 @@
-google assistant api chatbot
-
 Links:
 fastapi
 https://fastapi.tiangolo.com/#example
@@ -7,79 +5,9 @@ https://fastapi.tiangolo.com/advanced/using-request-directly/
 https://www.starlette.io/requests/
 
 
-google actions
-https://developers.google.com/assistant/conversational/webhooks?tool=sdk#example-request
-https://docs.google.com/presentation/d/1lGxmoMDZLFSievf5phoQVmlp85ofWZ2LDjNnH6wx7UY/edit#slide=id.g25ce23a6dd_0_5
 
 Python 3.8.5(Anaconda)
 fastapi 
 start the server with
 uvicorn main:app --reload
 ./ngrok http 8000
-
-
-
-https://www.pragnakalp.com/dialogflow-fulfillment-webhook-tutorial/
-https://flask-assistant.readthedocs.io/en/latest/index.html#
-https://www.instructables.com/Create-Custom-Actions-for-Google-Assistant/
-
-Default Code for inline editor:
-const {conversation} = require('@assistant/conversation');
-const functions = require('firebase-functions');
-
-const app = conversation();
-
-app.handle('start_scene_initial_prompt', (conv) => {
-  console.log('Start scene: initial prompt');
-  conv.overwrite = false;
-  conv.scene.next = { name: 'actions.scene.END_CONVERSATION' };
-  conv.add('Hello world from fulfillment');
-});
-
-exports.ActionsOnGoogleFulfillment = functions.https.onRequest(app);
-
-
-Sure, sending your data for user.params.department
-
-candidates:
-  - first_simple:
-      variants:
-        - speech: ' Sure, sending your data for $session.params.department'
-
-
-
-  "handler": {
-    "name": "handler_name"
-  },
-  "intent": {
-    "name": "actions.intent.MAIN",
-    "params": {},
-    "query": ""
-  },
-  "scene": {
-    "name": "SceneName",
-    "slotFillingStatus": "UNSPECIFIED",
-    "slots": {}
-  },
-  "session": {
-    "id": "example_session_id",
-    "params": {},
-    "typeOverrides": []
-  },
-  "user": {
-    "locale": "en-US",
-    "params": {
-      "verificationStatus": "VERIFIED"
-    }
-  },
-  "home": {
-    "params": {}
-  },
-  "device": {
-    "capabilities": [
-      "SPEECH",
-      "RICH_RESPONSE",
-      "LONG_FORM_AUDIO"
-    ]
-  }
-}
